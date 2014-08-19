@@ -10,7 +10,7 @@ test_X <- read.table( ".\\UCI HAR Dataset\\test\\X_test.txt")
 all_X <- rbind( train_X, test_X)
 ## Labels the data set with descriptive variable names.
 features_name <- read.table( ".\\UCI HAR Dataset\\features.txt")
-colnames( all_x) <-  features_name$V2
+colnames( all_X) <-  features_name$V2
 
 ## Read y data from Train Set and Test Set, and merge them together
 train_y <- read.table( ".\\UCI HAR Dataset\\train\\y_train.txt")
@@ -30,7 +30,7 @@ tidy_X <- all_X[ , c( grep( "mean()", colnames( all_X), fixed=TRUE),
 tidy_data1 <- cbind( all_subject, all_y, tidy_X)
 
 ## Labels the 1st and 2nd Columns in data set with descriptive variable names.
-colnames( all_data)[1:2] <-  c( "Subject", "Activity")
+colnames( tidy_data1)[1:2] <-  c( "Subject", "Activity")
 
 ## Uses descriptive activity names to name the activities in the data set
 activity_labels <- read.table( ".\\UCI HAR Dataset\\activity_labels.txt")
